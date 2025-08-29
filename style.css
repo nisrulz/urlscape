@@ -12,9 +12,22 @@ body {
     height: 100vh;
 }
 
+.main-container>.container {
+    padding-top: 4em;
+}
+
 /* Title Section */
 .title-section {
     padding: 1rem 0;
+}
+
+.title-section>b {
+    display: block;
+    text-align: center;
+}
+
+.theme-switcher {
+    cursor: pointer;
 }
 
 body.dark .title {
@@ -130,6 +143,12 @@ body.light .label {
 @media screen and (max-width: 768px) {
     .content-area {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .main-container>.container {
+        padding-top: 0.5em;
     }
 }
 

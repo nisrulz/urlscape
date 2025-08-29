@@ -18,8 +18,9 @@
             <!-- Title -->
             <section class="section title-section">
                 <h1 class="title has-text-centered is-size-2">
-                    🔗 URLscape: URL Encoder/Decoder
+                    🔗 URLscape
                 </h1>
+                <b>URL Encoder/Decoder</b>
             </section>
 
             <!-- Action Bar -->
@@ -27,7 +28,7 @@
                 <div class="field has-addons is-justify-content-center">
 
                     <p class="control">
-                        <button @click="encodeText" class="button is-light"
+                        <button @click="encodeText" class="button is-light is-small"
                             :class="{ 'is-loading': loadingAction === 'encode' }">
                             <span class="icon is-small"><i class="fas fa-lock"></i></span>
                             <span>Encode</span>
@@ -35,7 +36,7 @@
                     </p>
 
                     <p class="control">
-                        <button @click="decodeText" class="button is-light"
+                        <button @click="decodeText" class="button is-light is-small"
                             :class="{ 'is-loading': loadingAction === 'decode' }">
                             <span class="icon is-small"><i class="fas fa-unlock"></i></span>
                             <span>Decode</span>
@@ -43,28 +44,18 @@
                     </p>
 
                     <p class="control">
-                        <button @click="copyToClipboard" class="button is-light">
+                        <button @click="copyToClipboard" class="button is-light is-small">
                             <span class="icon is-small"><i class="fas fa-copy"></i></span>
                             <span>Copy</span>
                         </button>
                     </p>
 
                     <p class="control">
-                        <button @click="clearAll" class="button is-light">
+                        <button @click="clearAll" class="button is-light is-small">
                             <span class="icon is-small"><i class="fas fa-broom"></i></span>
                             <span>Clear</span>
                         </button>
                     </p>
-
-                    <p class="control">
-                        <button @click="toggleTheme" class="button is-light">
-                            <span class="icon is-small">
-                                <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
-                            </span>
-                            <span>{{ theme === 'dark' ? 'Light' : 'Dark' }}</span>
-                        </button>
-                    </p>
-
                 </div>
             </div>
 
@@ -84,8 +75,15 @@
                     <textarea id="outputTextArea" name="outputTextArea" v-model="outputText" class="textarea"
                         placeholder="Result will appear here..." readonly></textarea>
                 </div>
-            </div>
 
+                <p @click="toggleTheme" class="theme-switcher">
+                    Switch Theme:
+                    <span class="icon is-small">
+                        <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
+                    </span>
+                    &nbsp;<span>{{ theme === 'dark' ? 'Light' : 'Dark' }}</span>
+                </p>
+            </div>
         </div>
     </div>
 
