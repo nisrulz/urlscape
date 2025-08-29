@@ -1,0 +1,139 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Title Section */
+.title-section {
+    padding: 1rem 0;
+}
+
+body.dark .title {
+    color: #fff;
+}
+
+body.light .title {
+    color: #222;
+}
+
+/* Action Bar */
+.action-bar {
+    padding: 0.75rem;
+    backdrop-filter: blur(8px);
+    flex-wrap: wrap;
+}
+
+/* Content Area */
+.content-area {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* Glassmorphism Box */
+.glass-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Textareas */
+.textarea {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    resize: none;
+    padding: 1rem;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Dark Theme */
+body.dark {
+    background: black;
+    color: #fff;
+}
+
+body.dark .glass-box {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .textarea {
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+body.dark .label {
+    color: #fff;
+}
+
+/* Light Theme */
+body.light {
+    background: whitesmoke;
+    color: #222;
+}
+
+body.light .glass-box {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.light .textarea {
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+}
+
+body.light .label {
+    color: #222;
+}
+
+@keyframes borderPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+        /* transparent gold */
+        border-color: inherit;
+    }
+
+    50% {
+        box-shadow: 0 0 10px 3px rgba(255, 215, 0, 0.8);
+        /* glowing gold */
+        border-color: gold;
+    }
+}
+
+.blink {
+    animation: borderPulse 0.6s ease-in-out 3;
+}
+
+
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .content-area {
+        flex-direction: column;
+    }
+}
