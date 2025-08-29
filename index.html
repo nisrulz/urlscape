@@ -72,15 +72,15 @@
             <div class="content-area is-flex is-flex-direction-column is-align-items-center">
                 <!-- Input -->
                 <div class="box glass-box is-fullwidth" style="max-width: 800px; width: 100%;">
-                    <label class="label">Input</label>
-                    <textarea v-model="inputText" class="textarea"
+                    <label class="label" for="inputTextArea">Input</label>
+                    <textarea id="inputTextArea" name="inputTextArea" v-model="inputText" class="textarea"
                         placeholder="Enter text to encode or decode..."></textarea>
                 </div>
 
                 <!-- Output -->
                 <div class="box glass-box is-fullwidth" style="max-width: 800px; width: 100%;" id="output">
-                    <label class="label">Output</label>
-                    <textarea v-model="outputText" class="textarea" placeholder="Result will appear here..."
+                    <label class="label" for="outputTextArea">Output</label>
+                    <textarea id="outputTextArea" name="outputTextArea" v-model="outputText" class="textarea" placeholder="Result will appear here..."
                         readonly></textarea>
                 </div>
             </div>
