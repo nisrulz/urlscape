@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bg.css">
 </head>
 
 <body :class="theme">
     <div id="app" class="main-container">
-        <div class="container is-fluid">
+        <div class="container is-fluid bg-pattern">
 
             <!-- Title -->
             <section class="section title-section">
@@ -71,17 +72,17 @@
             <!-- Main Content -->
             <div class="content-area is-flex is-flex-direction-column is-align-items-center">
                 <!-- Input -->
-                <div class="box glass-box is-fullwidth" style="max-width: 800px; width: 100%;">
+                <div class="box is-fullwidth input-box" style="max-width: 800px; width: 100%;">
                     <label class="label" for="inputTextArea">Input</label>
                     <textarea id="inputTextArea" name="inputTextArea" v-model="inputText" class="textarea"
                         placeholder="Enter text to encode or decode..."></textarea>
                 </div>
 
                 <!-- Output -->
-                <div class="box glass-box is-fullwidth" style="max-width: 800px; width: 100%;" id="output">
+                <div class="box is-fullwidth input-box" style="max-width: 800px; width: 100%;" id="output">
                     <label class="label" for="outputTextArea">Output</label>
-                    <textarea id="outputTextArea" name="outputTextArea" v-model="outputText" class="textarea" placeholder="Result will appear here..."
-                        readonly></textarea>
+                    <textarea id="outputTextArea" name="outputTextArea" v-model="outputText" class="textarea"
+                        placeholder="Result will appear here..." readonly></textarea>
                 </div>
             </div>
 

@@ -25,10 +25,15 @@ body.light .title {
     color: #222;
 }
 
+.input-box {
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+    color: #222;
+}
+
 /* Action Bar */
 .action-bar {
-    padding: 0.75rem;
-    backdrop-filter: blur(8px);
     flex-wrap: wrap;
 }
 
@@ -43,15 +48,6 @@ body.light .title {
 .column {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-}
-
-/* Glassmorphism Box */
-.glass-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
     padding: 1rem;
 }
 
@@ -76,8 +72,9 @@ body.dark {
     color: #fff;
 }
 
-body.dark .glass-box {
-    background: rgba(255, 255, 255, 0.1);
+body.dark .input-box {
+    background: #334599;
+    color: #fff;
 }
 
 body.dark .textarea {
@@ -95,12 +92,13 @@ body.light {
     color: #222;
 }
 
-body.light .glass-box {
-    background: rgba(255, 255, 255, 0.1);
+body.light .input-box {
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
 }
 
 body.light .textarea {
-    background: rgba(255, 255, 255, 0.9);
+    background: white;
     color: #222;
 }
 
@@ -128,12 +126,41 @@ body.light .label {
     animation: borderPulse 0.6s ease-in-out 3;
 }
 
-
-
-
 /* Responsive */
 @media screen and (max-width: 768px) {
     .content-area {
         flex-direction: column;
     }
+}
+
+/* Fix Bulma loading spinner color in dark mode */
+body.dark .button.is-loading::after {
+    border-color: #fff transparent #fff transparent !important;
+}
+
+/* Themed Buttons */
+body.dark .button {
+    background: #334599;
+    color: #fff;
+    border-color: #334599;
+}
+
+body.dark .button:hover,
+body.dark .button:focus {
+    background: #25336b;
+    color: #fff;
+    border-color: #25336b;
+}
+
+body.light .button {
+    background: #fff;
+    color: #222;
+    border-color: #e0e0e0;
+}
+
+body.light .button:hover,
+body.light .button:focus {
+    background: #f0f0f0;
+    color: #222;
+    border-color: #bdbdbd;
 }
