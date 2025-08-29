@@ -4,6 +4,8 @@ Escapes and unescapes URLs with ease.
 
 ## 📖 Overview
 
+![Banner](./assets/banner.jpg)
+
 **URLscape** is a lightweight, no‑frills tool for quickly **encoding** and **decoding** URLs.  
 
 Whether you’re a developer, tester, or just someone who’s tired of `%20` clutter, URLscape makes it effortless to switch between human‑readable and URL‑safe formats.
