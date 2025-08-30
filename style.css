@@ -9,6 +9,14 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+.center-text {
+    text-align: center;
+}
+
+#footer {
+    padding: 1em 0;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -124,6 +132,14 @@ body.dark .button.is-loading::after {
     border-color: #fff transparent #fff transparent !important;
 }
 
+body.dark #footer a {
+    color: #db0075;
+}
+
+body.dark #footer a:hover {
+    color: #f86dca;
+}
+
 /* =========================
 Theme: Light
 ========================= */
@@ -211,10 +227,20 @@ Responsive
     .content-area {
         flex-direction: column;
     }
+
+    .ko-fi-btn {
+        height: 2em;
+    }
 }
 
 @media screen and (max-width: 380px) {
     .main-container>.container {
         padding-top: 0.5em;
     }
+}
+
+.ko-fi-btn {
+    border: 0px;
+    height: 1.4em;
+    margin-left: 6px;
 }

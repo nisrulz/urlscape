@@ -2,9 +2,53 @@
 <html lang="en">
 
 <head>
+    <!--
+Copyright 2025-Present Nishant Srivastava
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>URLscape: URL Encoder/Decoder</title>
+    <meta name="description" content="Escapes and unescapes URLs with ease.">
+
+    <meta name="copyright" content="Nishant Srivastava">
+    <meta name="author" content="Nishant Srivastava, nisrulz@gmail.com">
+
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+
+    <meta name="theme-color" content="#fff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta property="og:url" content="https://nisrulz.com/urlscape/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="URLscape: URL Encoder/Decoder">
+    <meta property="og:description" content="Escapes and unescapes URLs with ease.">
+    <meta property="og:image" content="https://nisrulz.com/urlscape/assets/link_preview.jpg">
+    <meta property="og:image:alt" content="URLscape: URL Encoder/Decoder">
+    <meta property="og:image:type" content="image/jpeg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="nisrulz.com">
+    <meta property="twitter:url" content="https://nisrulz.com/urlscape/">
+    <meta name="twitter:title" content="URLscape: URL Encoder/Decoder">
+    <meta name="twitter:description" content="Escapes and unescapes URLs with ease.">
+    <meta name="twitter:image" content="https://nisrulz.com/urlscape/assets/link_preview.jpg">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -76,6 +120,7 @@
                         placeholder="Result will appear here..." readonly></textarea>
                 </div>
 
+                <!-- Theme Switcher -->
                 <p @click="toggleTheme" class="theme-switcher">
                     Switch Theme:
                     <span class="icon is-small">
@@ -83,6 +128,29 @@
                     </span>
                     &nbsp;<span>{{ theme === 'dark' ? 'Light' : 'Dark' }}</span>
                 </p>
+
+                <!-- Footer -->
+                <div id="footer">
+                    <p class="center-text">Forever <a
+                            href="https://github.com/nisrulz/urlscape?tab=readme-ov-file#urlscape-url-encoderdecoder-"
+                            target="_blank" rel="noopener noreferrer">free and open-source</a>, built with <span
+                            class="heart">♥️ </span>by <a href="http://www.nisrulz.com/" target="_blank"
+                            rel="noopener noreferrer">Nishant</a> and <a
+                            href="https://github.com/nisrulz/urlscape/graphs/contributors" target="_blank"
+                            rel="noopener noreferrer">contributors.</a></p>
+                    <br />
+                    <p class="center-text">
+                        <a href="https://bsky.app/intent/compose?text=%F0%9F%94%97%20URLscape%3A%20Escapes%20and%20unescapes%20URLs%20with%20ease.%0A%0A%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%20Built%20by%20%40nisrulz.com%0A%E2%9C%85%20Web%20App%3A%20https%3A%2F%2Fnisrulz.com%2Furlscape%0A%F0%9F%A7%B0%20Github%3A%20https%3A%2F%2Fgithub.com%2Fnisrulz%2Furlscape%3Ftab%3Dreadme-ov-file%23urlscape-url-encoderdecoder-"
+                            target="_blank" rel="noopener noreferrer">
+                            <img src="https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&amp;logoColor=fff&amp;label=Share%20on&amp;color=0285FF"
+                                alt="Bluesky" style="margin-right: 6px;">
+                        </a>
+                        <a href="https://ko-fi.com/A443EQ6" target="_blank">
+                            <img class="ko-fi-btn" src="https://storage.ko-fi.com/cdn/kofi1.png?v=3"
+                                alt="Buy Me a Coffee at ko-fi.com">
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
