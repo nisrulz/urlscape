@@ -1,3 +1,6 @@
+/* =========================
+Base & Layout
+========================= */
 html,
 body {
     height: 100%;
@@ -16,41 +19,6 @@ body {
     padding-top: 4em;
 }
 
-/* Title Section */
-.title-section {
-    padding: 1rem 0;
-}
-
-.title-section>b {
-    display: block;
-    text-align: center;
-}
-
-.theme-switcher {
-    cursor: pointer;
-}
-
-body.dark .title {
-    color: #fff;
-}
-
-body.light .title {
-    color: #222;
-}
-
-.input-box {
-    border-radius: 8px;
-    padding: 1rem;
-    background: white;
-    color: #222;
-}
-
-/* Action Bar */
-.action-bar {
-    flex-wrap: wrap;
-}
-
-/* Content Area */
 .content-area {
     flex: 1;
     display: flex;
@@ -64,12 +32,41 @@ body.light .title {
     padding: 1rem;
 }
 
+/* =========================
+Typography & Titles
+========================= */
+.title-section {
+    padding: 1rem 0;
+}
+
+.title-section>b {
+    display: block;
+    text-align: center;
+}
+
+.theme-switcher {
+    cursor: pointer;
+}
+
 .label {
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-/* Textareas */
+/* =========================
+Components
+========================= */
+.input-box {
+    border-radius: 8px;
+    padding: 1rem;
+    background: rgb(226 226 226);
+    color: #222;
+}
+
+.action-bar {
+    flex-wrap: wrap;
+}
+
 .textarea {
     flex: 1;
     border: none;
@@ -79,9 +76,15 @@ body.light .title {
     font-family: 'Monaco', 'Menlo', monospace;
 }
 
-/* Dark Theme */
+/* =========================
+Theme: Dark
+========================= */
 body.dark {
     background: #232d5b;
+    color: #fff;
+}
+
+body.dark .title {
     color: #fff;
 }
 
@@ -99,14 +102,42 @@ body.dark .label {
     color: #fff;
 }
 
-/* Light Theme */
+body.dark ::placeholder {
+    color: #bfc7e0;
+    opacity: 1;
+}
+
+body.dark .button {
+    background: #334599;
+    color: #fff;
+    border-color: #334599;
+}
+
+body.dark .button:hover,
+body.dark .button:focus {
+    background: #25336b;
+    color: #fff;
+    border-color: #25336b;
+}
+
+body.dark .button.is-loading::after {
+    border-color: #fff transparent #fff transparent !important;
+}
+
+/* =========================
+Theme: Light
+========================= */
 body.light {
     background: #f5f5f5;
     color: #222;
 }
 
+body.light .title {
+    color: #222;
+}
+
 body.light .input-box {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgb(226 226 226);
     color: #222;
 }
 
@@ -119,6 +150,22 @@ body.light .label {
     color: #222;
 }
 
+body.light .button {
+    background: #fff;
+    color: #222;
+    border-color: #e0e0e0;
+}
+
+body.light .button:hover,
+body.light .button:focus {
+    background: #f0f0f0;
+    color: #222;
+    border-color: #bdbdbd;
+}
+
+/* =========================
+Animation & Effects
+========================= */
 @keyframes borderPulse {
 
     0%,
@@ -135,11 +182,31 @@ body.light .label {
     }
 }
 
+@keyframes borderPulseDark {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+        border-color: inherit;
+    }
+
+    50% {
+        box-shadow: 0 0 10px 3px rgba(108, 99, 255, 0.8);
+        border-color: #6c63ff;
+    }
+}
+
 .blink {
+    animation: borderPulseDark 0.6s ease-in-out 3;
+}
+
+body.dark .blink {
     animation: borderPulse 0.6s ease-in-out 3;
 }
 
-/* Responsive */
+/* =========================
+Responsive
+========================= */
 @media screen and (max-width: 768px) {
     .content-area {
         flex-direction: column;
@@ -150,36 +217,4 @@ body.light .label {
     .main-container>.container {
         padding-top: 0.5em;
     }
-}
-
-/* Fix Bulma loading spinner color in dark mode */
-body.dark .button.is-loading::after {
-    border-color: #fff transparent #fff transparent !important;
-}
-
-/* Themed Buttons */
-body.dark .button {
-    background: #334599;
-    color: #fff;
-    border-color: #334599;
-}
-
-body.dark .button:hover,
-body.dark .button:focus {
-    background: #25336b;
-    color: #fff;
-    border-color: #25336b;
-}
-
-body.light .button {
-    background: #fff;
-    color: #222;
-    border-color: #e0e0e0;
-}
-
-body.light .button:hover,
-body.light .button:focus {
-    background: #f0f0f0;
-    color: #222;
-    border-color: #bdbdbd;
 }
