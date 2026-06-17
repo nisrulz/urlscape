@@ -1,0 +1,17 @@
+{
+  "name": "URLscape: URL Encoder/Decoder",
+  "short_name": "URLscape",
+  "description": "Escapes and unescapes URLs with ease.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#232d5b",
+  "theme_color": "#232d5b",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["developer-tools", "utilities"]
+}
