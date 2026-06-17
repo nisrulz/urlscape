@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+Copyright 2025 Nishant Srivastava
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>URLscape: URL Encoder/Decoder</title>
+  <meta name="description" content="Escapes and unescapes URLs with ease.">
+  <meta name="author" content="Nishant Srivastava, nisrulz@gmail.com">
+
+  <meta name="theme-color" content="#232d5b">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:url" content="https://nisrulz.com/urlscape/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="URLscape: URL Encoder/Decoder">
+  <meta property="og:description" content="Escapes and unescapes URLs with ease.">
+  <meta property="og:image" content="https://nisrulz.com/urlscape/assets/link_preview.jpg">
+  <meta property="og:image:alt" content="URLscape: URL Encoder/Decoder">
+  <meta property="og:image:type" content="image/jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="nisrulz.com">
+  <meta property="twitter:url" content="https://nisrulz.com/urlscape/">
+  <meta name="twitter:title" content="URLscape: URL Encoder/Decoder">
+  <meta name="twitter:description" content="Escapes and unescapes URLs with ease.">
+  <meta name="twitter:image" content="https://nisrulz.com/urlscape/assets/link_preview.jpg">
+
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script>document.body.className = localStorage.getItem('theme') || 'dark';</script>
+  <div id="app" class="main-container">
+    <div class="container is-fluid bg-pattern">
+
+      <!-- Title -->
+      <section class="section title-section">
+        <h1 class="title has-text-centered is-size-2">
+          🔗 URLscape: URL Encoder/Decoder
+        </h1>
+      </section>
+
+      <!-- Main Content -->
+      <div class="content-area">
+
+        <!-- Input -->
+        <div class="box is-fullwidth input-box" id="input">
+          <div class="input-box-header">
+            <label class="label" for="inputTextArea">
+              Input
+              <span v-if="isValidUrl" class="url-badge valid" title="Valid URL">✓ URL</span>
+            </label>
+            <div class="input-box-actions">
+              <button @click="clearInput" class="button is-small" title="Clear input">
+                <span class="icon is-small"><i class="fas fa-eraser"></i></span>
+              </button>
+              <button @click="copyInput" class="button is-small" title="Copy input">
+                <span class="icon is-small"><i class="fas fa-copy"></i></span>
+              </button>
+            </div>
+          </div>
+          <textarea id="inputTextArea" v-model="inputText" class="textarea"></textarea>
+          <div class="counter">
+            <span>{{ inputChars }} chars</span>
+            <span>{{ inputBytes }} bytes</span>
+            <span v-if="!inputText" class="hint-text">| Enter text to encode or decode…</span>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="box is-fullwidth input-box" id="output">
+          <div class="input-box-header">
+            <label class="label" for="outputTextArea">Output</label>
+            <div class="input-box-actions">
+              <button @click="clearOutput" class="button is-small" title="Clear output">
+                <span class="icon is-small"><i class="fas fa-eraser"></i></span>
+              </button>
+              <button @click="copyOutput" class="button is-small" title="Copy output">
+                <span class="icon is-small"><i class="fas fa-copy"></i></span>
+              </button>
+            </div>
+          </div>
+          <textarea id="outputTextArea" v-model="outputText" class="textarea"></textarea>
+          <div class="counter">
+            <span>{{ outputChars }} chars</span>
+            <span>{{ outputBytes }} bytes</span>
+            <span v-if="!outputText" class="hint-text">| Result will appear here…</span>
+          </div>
+        </div>
+
+        <!-- Theme Switcher -->
+        <p @click="toggleTheme" class="theme-switcher">
+          Switch Theme:
+          <span class="icon is-small">
+            <i :class="theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'"></i>
+          </span>
+          &nbsp;<span>{{ theme === 'dark' ? 'Light' : 'Dark' }}</span>
+        </p>
+
+        <!-- Footer -->
+        <div id="footer">
+          <p class="center-text">Forever <a
+              href="https://github.com/nisrulz/urlscape?tab=readme-ov-file#urlscape-url-encoderdecoder-"
+              target="_blank" rel="noopener noreferrer">free and open-source</a>, built with <span
+              class="heart">♥️ </span>by <a href="http://www.nisrulz.com/" target="_blank"
+              rel="noopener noreferrer">Nishant</a> and <a
+              href="https://github.com/nisrulz/urlscape/graphs/contributors" target="_blank"
+              rel="noopener noreferrer">contributors.</a>
+          </p>
+          <br />
+          <p class="center-text">
+            <a href="https://bsky.app/intent/compose?text=%F0%9F%94%97%20URLscape%3A%20Escapes%20and%20unescapes%20URLs%20with%20ease.%0A%0A%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%20Built%20by%20%40nisrulz.com%0A%E2%9C%85%20Web%20App%3A%20https%3A%2F%2Fnisrulz.com%2Furlscape%0A%F0%9F%A7%B0%20Github%3A%20https%3A%2F%2Fgithub.com%2Fnisrulz%2Furlscape%3Ftab%3Dreadme-ov-file%23urlscape-url-encoderdecoder-"
+              target="_blank" rel="noopener noreferrer">
+              <img class="share-btn" src="https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&amp;logoColor=fff&amp;label=Share%20on&amp;color=0285FF"
+                alt="Bluesky">
+            </a>
+            <a href="https://ko-fi.com/A443EQ6" target="_blank">
+              <img class="ko-fi-btn" src="https://storage.ko-fi.com/cdn/kofi1.png?v=3"
+                alt="Buy Me a Coffee at ko-fi.com">
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="script.js"></script>
+  <script>navigator.serviceWorker.register('sw.js');</script>
+</body>
+
+</html>

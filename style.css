@@ -1,0 +1,260 @@
+:root {
+  --bg-body: #f5f5f5;
+  --text-body: #222;
+  --text-title: #222;
+  --bg-input-box: rgb(226 226 226);
+  --text-input-box: #222;
+  --bg-textarea: #fff;
+  --text-textarea: #222;
+  --text-label: #222;
+  --bg-btn: #fff;
+  --text-btn: #222;
+  --border-btn: #e0e0e0;
+  --bg-btn-hover: #f0f0f0;
+  --border-btn-hover: #bdbdbd;
+  --text-link: #485fc7;
+  --text-link-hover: #3630d9;
+  --glow-color: rgba(108, 99, 255, 0.8);
+  --glow-border: #6c63ff;
+  --pattern-opacity: 0.09;
+}
+
+body.dark {
+  --bg-body: #232d5b;
+  --text-body: #fff;
+  --text-title: #fff;
+  --bg-input-box: #334599;
+  --text-input-box: #fff;
+  --bg-textarea: #1f295c;
+  --text-textarea: #fff;
+  --text-label: #fff;
+  --bg-btn: #334599;
+  --text-btn: #fff;
+  --border-btn: #334599;
+  --bg-btn-hover: #25336b;
+  --border-btn-hover: #25336b;
+  --text-link: #db0075;
+  --text-link-hover: #f86dca;
+  --glow-color: rgba(255, 215, 0, 0.8);
+  --glow-border: gold;
+  --pattern-opacity: 0.2;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-body);
+  color: var(--text-body);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.title {
+  color: var(--text-title);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-container>.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding-top: 1.5em;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.5em 1em;
+  gap: 0.75rem;
+}
+
+.input-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: var(--bg-input-box);
+  color: var(--text-input-box);
+}
+
+.input-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.input-box-header .label {
+  margin-bottom: 0;
+}
+
+.input-box-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.input-box-actions .button {
+  background: transparent;
+  border: none;
+  color: var(--text-label);
+  opacity: 0.5;
+  height: 1.6em;
+  padding: 0 0.4em;
+}
+
+.input-box-actions .button:hover {
+  opacity: 1;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-label);
+  flex-shrink: 0;
+}
+
+.textarea {
+  flex: 1;
+  min-height: 0;
+  border: none;
+  border-radius: 8px;
+  resize: none;
+  padding: 0.75rem;
+  font-family: 'Monaco', 'Menlo', monospace;
+  background: var(--bg-textarea);
+  color: var(--text-textarea);
+}
+
+.url-badge {
+  font-size: 0.75em;
+  font-weight: 400;
+  margin-left: 0.5em;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.url-badge.valid { background: #22c55e; color: #fff; }
+
+.counter {
+  display: flex;
+  gap: 1em;
+  font-size: 0.75em;
+  opacity: 0.6;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.hint-text {
+  opacity: 0.5;
+}
+
+.theme-switcher {
+  cursor: pointer;
+}
+
+.title-section {
+  padding: 1rem 0;
+}
+
+.center-text {
+  text-align: center;
+}
+
+#footer {
+  padding: 1em 0;
+}
+
+#footer a {
+  color: var(--text-link);
+}
+
+#footer a:hover {
+  color: var(--text-link-hover);
+}
+
+.button {
+  background: var(--bg-btn);
+  color: var(--text-btn);
+  border-color: var(--border-btn);
+}
+
+.button:hover,
+.button:focus {
+  background: var(--bg-btn-hover);
+  color: var(--text-btn);
+  border-color: var(--border-btn-hover);
+}
+
+.button:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bg-pattern {
+  position: relative;
+}
+
+.bg-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('bg-pattern.svg') repeat;
+  opacity: var(--pattern-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-pattern>* {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes borderPulseLight {
+  0%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+    border-color: inherit;
+  }
+  50% {
+    box-shadow: 0 0 10px 3px var(--glow-color);
+    border-color: var(--glow-border);
+  }
+}
+
+.blink {
+  animation: borderPulseLight 0.6s ease-in-out 3;
+}
+
+.ko-fi-btn {
+  border: 0px;
+  height: 1.4em;
+  margin-left: 6px;
+}
+
+.share-btn {
+  margin-right: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .ko-fi-btn {
+    height: 2em;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .main-container>.container {
+    padding-top: 0.5em;
+  }
+}
